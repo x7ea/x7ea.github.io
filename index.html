@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>アナキスト同盟</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    </head>
+    
+    <body>
+        <header>
+            <h1>アナキスト同盟</h1>
+        </header>
+        
+        <main>
+            <ol>
+                <li><a href="./manifesto.md"></a></li>
+                <li><a href="./praxis.md"></a></li>
+            </ol>
+        </main>
+
+        <footer>
+            <p>(a) Anti-Copyrights 2026, Japan Anarchist League - JAL. All resources shared</p>
+        </footer>
+    </body>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p');
+
+        body {
+            margin: 0; padding: 0;
+            font-family: "M PLUS 1p", sans-serif;
+            background-color: lightgrey;
+            header {
+                text-align: center;
+                margin: 0; padding: 30px;
+                background: linear-gradient(to bottom right, crimson 49.8%, black 50.2%);
+                color: white; text-shadow: 3px 3px 1px darkred;
+                background-color: black;
+                margin-bottom: 10%;
+                font-size: 30px;
+            }
+            main {
+                margin: 0 auto; 
+                max-width: 800px;
+                font-size: 20px;
+                ol {
+                    padding-left: 2vw; 
+                    list-style: none;
+                    li {
+                        text-align: left;
+                        font-size: 25px;
+                        font-weight: bold;
+                        div {
+                            display: block;
+                            border-left: solid 1px grey;
+                            padding: 1vw; margin: 1vw;
+                            padding-top: 0; padding-bottom: 0;
+                            margin-bottom: 2vw;
+                            p {
+                                font-size: 18px;
+                                font-weight: lighter;
+                                margin: 0; padding: 0;
+                                & + & {
+                                    margin-top: 10px; 
+                                }
+                            }
+                        }
+                    }
+                }   
+                h1 {
+                    font-size: 25px;
+                }
+                h2 {
+                    color: darkred;
+                    font-size: 22px;
+                }
+                span {
+                    color: grey;
+                    display: inline-block;
+                    padding-left: 1em;
+                }
+                a {
+                    color: darkred;
+                    text-decoration: none;
+                    display: inline-block;
+                    &:hover {
+                        text-decoration: underline; 
+                    }
+                }
+            }
+            footer {
+                margin-top: 10%;
+                background-color: darkgray;
+                padding: 50px;
+            }
+            ::selection {
+                background-color: #11223388;
+                color: white;
+            }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        async function main() {
+            for (a of document.querySelectorAll("a")) {
+                let txt = document.createElement("div");
+                let data = await (await fetch(a.href)).text();
+                let lines = data.split('\n');
+
+                marked.use({ breaks: true, gfm: true });
+                data = lines.slice(2).join('\n').trim();
+                txt.innerHTML = marked.parse(data);
+
+                let meta = lines[1].trim();
+                if (meta.length != 0) {
+                    let span = document.createElement("span");
+                    span.innerText = meta;
+                    a.parentElement.appendChild(span);
+                }
+
+                a.parentElement.appendChild(txt)
+                a.innerHTML = marked.parse(lines[0]);
+            }
+        }
+
+        main()
+    </script>
+</html>
