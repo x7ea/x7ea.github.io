@@ -74,15 +74,13 @@
                     color: darkred;
                     font-size: 22px;
                 }
-                span {
+                p.meta {
                     color: grey;
-                    display: inline-block;
-                    padding-left: 1em;
+                    font-size: 16px;
                 }
                 a {
                     color: darkred;
                     text-decoration: none;
-                    display: inline-block;
                     &:hover {
                         text-decoration: underline; 
                     }
@@ -114,9 +112,9 @@
 
                 let meta = lines[1].trim();
                 if (meta.length != 0) {
-                    let span = document.createElement("span");
-                    span.innerText = meta;
-                    a.parentElement.appendChild(span);
+                    let p = document.createElement("p");
+                    [p.innerText, p.className] = [meta, "meta"];
+                    txt.prepend(p);
                 }
 
                 a.parentElement.appendChild(txt)
