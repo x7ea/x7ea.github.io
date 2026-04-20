@@ -31,11 +31,11 @@
     </body>
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p');
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+2');
 
         body {
             margin: 0; padding: 0;
-            font-family: "M PLUS 1p", monospace;
+            font-family: "M PLUS 2", monospace;
             background-color: whitesmoke;
             header {
                 text-align: center;
@@ -46,30 +46,31 @@
             }
             main {
                 margin: 0 auto; 
-                max-width: 800px;
-                font-size: 20px;
+                width: fit-content;
+                padding: 10px;
                 ol {
-                    padding-left: 2vw; 
                     list-style: none;
+                    padding-left: 0;
                     li {
                         text-align: left;
-                        font-size: 25px;
                         font-weight: bold;
+                        background-color: whitesmoke;
+                        margin-bottom: 2em;
                         h1 {
+                            margin-top: 0;
                             font-size: 25px;
                         }
                         div {
                             display: block;
-                            padding: 1vw; margin: 1vw;
-                            padding-top: 0; padding-bottom: 0;
-                            margin-bottom: 2vw;
-                            border-left: solid 1px grey;
+                            padding-top: 0; 
+                            padding-bottom: 0;
                             h2 {
                                 color: darkred;
                                 font-size: 22px;
                             }
                             p {
-                                font-size: 18px;
+                                font-size: 20px;
+                                max-width: calc(20px * 39);
                                 font-weight: normal;
                                 margin: 0; padding: 0;
                                 strong {
@@ -80,7 +81,7 @@
                                 }
                             }
                             p.meta {
-                                color: gray;
+                                color: grey;
                             }
                         }
                     }
