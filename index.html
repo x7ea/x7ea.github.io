@@ -1,21 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
     <head>
         <title>アナキスト同盟</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
         <meta property="og:type" content="article" />
         <meta property="og:url" content="https://anarchism.jp/" />
         <meta property="og:title" content="アナキスト同盟｜総破壊だッ！" />
         <meta property="og:image" content="https://anarchism.jp/flag.png" />
     </head>
-    
+
     <body>
         <header>
             <h1>アナキスト同盟</h1>
         </header>
-        
+
         <main>
             <ol>
                 <li><a href="./manifesto.md"></a></li>
@@ -26,27 +26,36 @@
         </main>
 
         <footer>
-            <p>(a) Anti-Copyrights 2026, Japan Anarchist League - JAL. All resources shared</p>
+            <p>
+                (a) Anti-Copyrights 2026, Japan Anarchist League - JAL. All
+                resources shared
+            </p>
         </footer>
     </body>
-    
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p');
+        @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1p");
 
         body {
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             font-family: "M PLUS 1p", monospace;
             background-color: whitesmoke;
             header {
                 text-align: center;
-                color: white; font-size: 30px;         
-                padding: 15px; margin: 0; margin-bottom: 10%;
+                color: white;
+                font-size: 30px;
+                padding: 15px;
+                margin: 0;
+                margin-bottom: 10%;
                 background-image: url("./flag.png");
-                background-repeat: no-repeat; background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
             }
             main {
-                margin: 0 auto; 
+                margin: 0 auto;
                 width: fit-content;
+                max-width: 800px;
                 padding: 10px;
                 ol {
                     list-style: none;
@@ -62,7 +71,7 @@
                         }
                         div {
                             display: block;
-                            padding-top: 0; 
+                            padding-top: 0;
                             padding-bottom: 0;
                             h2 {
                                 color: darkred;
@@ -70,14 +79,14 @@
                             }
                             p {
                                 font-size: 20px;
-                                max-width: calc(20px * 39);
                                 font-weight: normal;
-                                margin: 0; padding: 0;
+                                margin: 0;
+                                padding: 0;
                                 strong {
-                                    letter-spacing: -0.02em; 
+                                    letter-spacing: -0.02em;
                                 }
                                 & + & {
-                                    margin-top: 10px; 
+                                    margin-top: 10px;
                                 }
                             }
                             p.meta {
@@ -85,12 +94,12 @@
                             }
                         }
                     }
-                }   
+                }
                 a {
                     color: darkred;
                     text-decoration: none;
                     &:hover {
-                        text-decoration: underline; 
+                        text-decoration: underline;
                     }
                 }
             }
@@ -111,10 +120,10 @@
             for (a of document.querySelectorAll("a")) {
                 let txt = document.createElement("div");
                 let data = await (await fetch(a.href)).text();
-                let lines = data.split('\n');
+                let lines = data.split("\n");
 
                 marked.use({ breaks: true, gfm: true });
-                data = lines.slice(2).join('\n').trim();
+                data = lines.slice(2).join("\n").trim();
                 txt.innerHTML = marked.parse(data);
 
                 let meta = lines[1].trim();
@@ -124,11 +133,11 @@
                     txt.prepend(p);
                 }
 
-                a.parentElement.appendChild(txt)
+                a.parentElement.appendChild(txt);
                 a.innerHTML = marked.parse(lines[0]);
             }
         }
 
-        main()
+        main();
     </script>
 </html>
